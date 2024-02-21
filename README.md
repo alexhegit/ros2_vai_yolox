@@ -20,7 +20,7 @@ This node subscribes the image msg from usb_cam and publish the inference image.
 1. source the ros2-humble environment
 > source /opt/ros/humble/setup.sh
 2. Clone the repo
-> git clone https://gitenterprise.xilinx.com/alehe/ros2_vai_yolox.git
+> git clone https://github.com/alexhegit/ros2_vai_yolox.git
 
 3. Build package
 The package include one node name /vai_yolox
