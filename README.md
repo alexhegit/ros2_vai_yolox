@@ -6,7 +6,7 @@ This node subscribes the image msg from usb_cam and publish the inference image.
 ## Prerequist
 
 ### Platform
-1. Ryzen AI CPU Platform (e.g. Miniform Venus UM790 Pro/UM760 Pro with Ryzen 7940HS)
+1. Ryzen AI CPU Platform (e.g. Miniforum Venus UM790 Pro/UM760 Pro with Ryzen 7940HS)
 2. Ubuntu22.04
 3. usb camera (e.g. logi-c270)
 
