@@ -35,8 +35,7 @@ The package include one node name /vai_yolox
 > source install/local_setup.sh
 > 
 > ros2 pkg list | grep vai_yolox
-> 
-> vai_yolox_pkg
+>> vai_yolox_pkg
 
 ## Run the demo
 The demo pipeline is below. the /usb_cam node publish iamge_raw topic and /vai_yolox node subscribe the image_raw and publish the inference result as /image_infer topic.
