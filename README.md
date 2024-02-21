@@ -64,3 +64,6 @@ The vai yolox inference depends on the IPU config file (in ros2_vai_ws/src/vai_y
 The whole demo running looks like
 ![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/d573c870-3558-4f50-b5c7-b7e9cbb80313)
 
+
+# Authors
+Alex He (heye_dev@163.com / alehe@amd.com)
