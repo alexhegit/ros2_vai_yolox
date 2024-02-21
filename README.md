@@ -25,6 +25,7 @@ This node subscribes the image msg from usb_cam and publish the inference image.
 3. Build package
 The package include one node name /vai_yolox
 > cd ros2_vai_yolox/ros2_vai_ws/
+> 
 > colcon build
 
 ![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/5bdc80b2-3584-4534-a699-3e5dd43c13a0)
@@ -32,8 +33,10 @@ The package include one node name /vai_yolox
 
 4. Check the ros2_vai_yolox package
 > source install/local_setup.sh
-> $ ros2 pkg list | grep vai_yolox
->> vai_yolox_pkg
+> 
+> ros2 pkg list | grep vai_yolox
+> 
+> vai_yolox_pkg
 
 ## Run the demo
 The demo pipeline is below. the /usb_cam node publish iamge_raw topic and /vai_yolox node subscribe the image_raw and publish the inference result as /image_infer topic.
