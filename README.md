@@ -25,8 +25,8 @@ This node subscribes the image msg from usb_cam and publish the inference image.
 3. Build package
 The package include one node name /vai_yolox
 > cd ros2_vai_yolox/ros2_vai_ws/
-
 > colcon build
+
 ![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/5bdc80b2-3584-4534-a699-3e5dd43c13a0)
 
 
