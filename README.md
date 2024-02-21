@@ -23,17 +23,20 @@ This node subscribes the image msg from usb_cam and publish the inference image.
 > git clone https://gitenterprise.xilinx.com/alehe/ros2_vai_yolox.git
 
 3. Build package
-> The package include one node name /vai_yolox
+The package include one node name /vai_yolox
 > cd ros2_vai_yolox/ros2_vai_ws/
 > colcon build
+![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/5bdc80b2-3584-4534-a699-3e5dd43c13a0)
 
-3. Check the ros2_vai_yolox package
+
+4. Check the ros2_vai_yolox package
 > source install/local_setup.sh
 > $ ros2 pkg list | grep vai_yolox
 >> vai_yolox_pkg
 
 ## Run the demo
 The demo pipeline is below. the /usb_cam node publish iamge_raw topic and /vai_yolox node subscribe the image_raw and publish the inference result as /image_infer topic.
+![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/40316bb8-b103-477a-a7fc-3ecd27975b64)
 
 **Steps**
 The vai yolox inference depends on the IPU config file (in ros2_vai_ws/src/vai_yolox_pkg/resource/vaip_config.json) and yolox-s-int8.onnx. You should copy them to /tmp folder.(Now there are some hard codes to find them). The yolox-s-int8.onnx could be downloaded from https://huggingface.co/amd/yolox-s.
@@ -43,12 +46,18 @@ The vai yolox inference depends on the IPU config file (in ros2_vai_ws/src/vai_y
 
 2. Open terminal 2 and run /vai_yolox
 > ros2 run vai_yolox_pkg yolox_node
+![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/a8c352c2-81f2-4475-9938-fd2ebe980f6d)
 
 3. Open terminal 3 to check the pipeline graph
 > ros2 run rqt_graph rqt_graph
+![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/d83af4b6-0e97-4b73-ab3e-4d3f63c3da82)
+
 
 4. Open terminal 4 to view the runtime inference video
 > ros2 run rqt_image_view rqt_image_view
+![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/f95bcd2e-6ed7-40c8-80bd-98d265d04bca)
 
-The whole demo looks like
+
+The whole demo running looks like
+![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/d573c870-3558-4f50-b5c7-b7e9cbb80313)
 
