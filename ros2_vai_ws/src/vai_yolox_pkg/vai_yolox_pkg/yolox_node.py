@@ -23,19 +23,34 @@ class VAI_YOLOX(Node):
     def __init__(self, name):
         super().__init__(name)
         self.get_logger().info("AMD VAI YOLOX inference node init")
-        self.score_thr = 0.3
-        self.output_dir = "demo_output"
-        self.image_path = "demo.jpg"
-        self.model = "yolox-s-int8.onnx"
-        self.ipu = "True"
-        self.vaip_config = "/tmp/vaip_config.json"
+        self.declare_parameters(
+            namespace = '',
+            parameters = [
+                ("model", "/tmp/yolox-s-int8.onnx"),
+                ("vaip_config", "/tmp/vaip_config.json"),
+                ("score_thr", 0.3),
+                ("output_dir", "/tmp/demo_output"),
+                ("image_path", "yolox-demo.jpg"),
+                ("ipu", "True"),
+                ("s_qos", 10, ),
+                ("p_qos", 10)
+            ]
+        )
+        self.score_thr = self.get_parameter("score_thr")
+        self.output_dir = self.get_parameter("output_dir")
+        self.image_path = self.get_parameter("image_path")
+        self.model = self.get_parameter("model")
+        self.ipu = self.get_parameter("ipu")
+        self.vaip_config = self.get_parameter("vaip_config")
+        self.s_qos = self.get_parameter("s_qos").get_parameter_value().integer_value
+        self.p_qos = self.get_parameter("p_qos").get_parameter_value().integer_value
         self.bridge = CvBridge()
         self.sub_img = self.create_subscription(
             Image,
             '/image_raw',
             self.img_infer,
-            10)
-        self.pub_img = self.create_publisher(Image, 'image_infer', 10)
+            self.s_qos)
+        self.pub_img = self.create_publisher(Image, 'image_infer', self.p_qos)
 
     def img_infer(self, msg):
         # Convert ROS Image message to OpenCV image
@@ -55,9 +70,7 @@ class VAI_YOLOX(Node):
             self.get_logger().info("CPU EP")
             providers = ['CPUExecutionProvider']
             provider_options = None
-        #model = os.path.join(str(CURRENT_DIR), self.model)
-        model = "/tmp/yolox-s-int8.onnx"
-        session = ort.InferenceSession(model, providers=providers, provider_options=provider_options)
+        session = ort.InferenceSession(self.model, providers=providers, provider_options=provider_options)
         # ort_inputs = {session.get_inputs()[0].name: img[None, :, :, :]}
         ort_inputs = {session.get_inputs()[0].name: np.transpose(img[None, :, :, :], (0, 2 ,3, 1))}
         outputs = session.run(None, ort_inputs)
