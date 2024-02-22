@@ -45,7 +45,8 @@ The vai yolox inference depends on the IPU config file (in ros2_vai_ws/src/vai_y
 > ros2 run vai_yolox_pkg yolox_node
 
 The yolox_node has many parameters with default values
-'''python
+
+'''
         self.declare_parameters(
             namespace = '',
             parameters = [
@@ -60,6 +61,7 @@ The yolox_node has many parameters with default values
             ]
         )
 '''
+
 So you can run it with overide vaules for these parameters.
 > e.g.
 > ros2 run vai_yolox_pkg yolox_node --ros-args -p model:=~/yolox-s-int8.onnx -p p_qos:=20
