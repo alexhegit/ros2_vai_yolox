@@ -32,10 +32,26 @@ class VAI_YOLOX(Node):
                 ("output_dir", "/tmp/demo_output"),
                 ("image_path", "yolox-demo.jpg"),
                 ("ipu", "True"),
-                ("s_qos", 10, ),
+                ("s_qos", 10),
                 ("p_qos", 10)
             ]
         )
+        '''
+        self.declare_parameters(
+            namespace = '',
+            parameters = [
+                ("model", rclpy.Parameter.Type.STRING),
+                ("vaip_config", rclpy.Parameter.Type.STRING),
+                ("score_thr", rclpy.Parameter.Type.DOUBLE),
+                ("output_dir", rclpy.Parameter.Type.STRING),
+                ("image_path", rclpy.Parameter.Type.STRING),
+                ("ipu", rclpy.Parameter.Type.STRING),
+                ("s_qos", rclpy.Parameter.Type.INTEGER),
+                ("p_qos", rclpy.Parameter.Type.INTEGER)
+            ]
+        )
+        '''
+
         self.score_thr = self.get_parameter("score_thr").get_parameter_value().double_value
         self.output_dir = self.get_parameter("output_dir").get_parameter_value().string_value
         self.image_path = self.get_parameter("image_path").get_parameter_value().string_value

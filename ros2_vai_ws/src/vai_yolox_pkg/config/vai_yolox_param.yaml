@@ -1,0 +1,11 @@
+/vai_yolox:
+  ros__parameters:
+    image_path: "yolox-demo.jpg"
+    ipu: "True"
+    model: /tmp/yolox-s-int8.onnx
+    output_dir: "/tmp/demo_output"
+    p_qos: 10
+    s_qos: 10
+    score_thr: 0.3
+    vaip_config: "/tmp/vaip_config.json"
+
