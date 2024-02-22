@@ -44,6 +44,26 @@ The vai yolox inference depends on the IPU config file (in ros2_vai_ws/src/vai_y
 2. Open terminal 2 and run /vai_yolox
 > ros2 run vai_yolox_pkg yolox_node
 
+The yolox_node has many parameters with default values
+'''python
+        self.declare_parameters(
+            namespace = '',
+            parameters = [
+                ("model", "/tmp/yolox-s-int8.onnx"),
+                ("vaip_config", "/tmp/vaip_config.json"),
+                ("score_thr", 0.3),
+                ("output_dir", "/tmp/demo_output"),
+                ("image_path", "yolox-demo.jpg"),
+                ("ipu", "True"),
+                ("s_qos", 10, ),
+                ("p_qos", 10)
+            ]
+        )
+'''
+So you can run it with overide vaules for these parameters.
+> e.g.
+> ros2 run vai_yolox_pkg yolox_node --ros-args -p model:=~/yolox-s-int8.onnx -p p_qos:=20
+
 3. Open terminal 3 to check the pipeline graph
 > ros2 run rqt_graph rqt_graph
 
