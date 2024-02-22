@@ -93,9 +93,9 @@ The whole demo running looks like
 ![image](https://github.com/alexhegit/ros2_vai_yolox/assets/31022192/d573c870-3558-4f50-b5c7-b7e9cbb80313)
 
 ## Reference
-https://github.com/ros-drivers/usb_cam
-https://github.com/ms-iot/ros_msft_onnx
-https://github.com/junmeng6025/ros2_yolov5_webcam
+- https://github.com/ros-drivers/usb_cam
+- https://github.com/ms-iot/ros_msft_onnx
+- https://github.com/junmeng6025/ros2_yolov5_webcam
 
 # Authors
 Alex He (heye_dev@163.com / alehe@amd.com)
