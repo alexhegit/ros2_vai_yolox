@@ -71,6 +71,11 @@ So you can run it with overide vaules for these parameters.
 > e.g.
 > 
 > ros2 run vai_yolox_pkg yolox_node --ros-args -p model:=~/yolox-s-int8.onnx -p p_qos:=20
+>
+I also provide a default parameters config file in ros2_vai_ws/src/vai_yolox_pkg/config/vai_yolox_param.yaml. You can use it or modify it as need. Use it:
+> ros2 run vai_yolox_pkg yolox_node --ros-args --params-file ros2_vai_ws/src/vai_yolox_pkg/config/vai_yolox_param.yaml
+> OR 
+> ros2 launch vai_yolox_pkg vai_yolox_launch.py
 
 3. Open terminal 3 to check the pipeline graph
 > ros2 run rqt_graph rqt_graph
