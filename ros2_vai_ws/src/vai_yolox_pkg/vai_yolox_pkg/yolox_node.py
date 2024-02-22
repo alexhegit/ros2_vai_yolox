@@ -36,12 +36,12 @@ class VAI_YOLOX(Node):
                 ("p_qos", 10)
             ]
         )
-        self.score_thr = self.get_parameter("score_thr")
-        self.output_dir = self.get_parameter("output_dir")
-        self.image_path = self.get_parameter("image_path")
-        self.model = self.get_parameter("model")
-        self.ipu = self.get_parameter("ipu")
-        self.vaip_config = self.get_parameter("vaip_config")
+        self.score_thr = self.get_parameter("score_thr").get_parameter_value().double_value
+        self.output_dir = self.get_parameter("output_dir").get_parameter_value().string_value
+        self.image_path = self.get_parameter("image_path").get_parameter_value().string_value
+        self.model = self.get_parameter("model").get_parameter_value().string_value
+        self.ipu = self.get_parameter("ipu").get_parameter_value().string_value
+        self.vaip_config = self.get_parameter("vaip_config").get_parameter_value().string_value
         self.s_qos = self.get_parameter("s_qos").get_parameter_value().integer_value
         self.p_qos = self.get_parameter("p_qos").get_parameter_value().integer_value
         self.bridge = CvBridge()
