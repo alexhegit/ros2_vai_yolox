@@ -62,6 +62,7 @@ The yolox_node has many parameters with default values
 ```
 So you can run it with overide vaules for these parameters.
 > e.g.
+> 
 > ros2 run vai_yolox_pkg yolox_node --ros-args -p model:=~/yolox-s-int8.onnx -p p_qos:=20
 
 3. Open terminal 3 to check the pipeline graph
