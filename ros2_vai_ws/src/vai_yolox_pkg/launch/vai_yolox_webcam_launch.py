@@ -21,5 +21,9 @@ def generate_launch_description():
             output='screen',
             emulate_tty=True,
             parameters=[config]
-        )
+        ),
+        Node(
+            package='rqt_image_view',
+            executable='rqt_image_view',
+        ),
     ])
